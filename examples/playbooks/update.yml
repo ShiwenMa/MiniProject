@@ -1,0 +1,37 @@
+---
+
+- hosts: all
+  become: yes
+  serial: 5
+
+  vars_prompt:
+    - name: "reboot_system"
+      prompt: "Do you want to reboot? yes/no"
+      default: 'no'
+      private: no
+
+  tasks:
+    - name: update system
+      yum: name=* state=latest
+      tags:
+        - update
+
+    - block:
+      - name: reboot
+        shell: sleep 2 && shutdown -r now
+        async: 1
+        poll: 0
+        ignore_errors: yes
+        tags:
+          - reboot
+      - name: wait for server to start
+        become: no
+        local_action:
+          module: wait_for
+             host="{{ inventory_hostname }}"
+             state=started
+             delay=30
+             timeout=180
+        tags:
+          - reboot
+      when: reboot_system|string in 'y.yes'
