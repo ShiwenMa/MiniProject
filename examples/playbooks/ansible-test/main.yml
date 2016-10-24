@@ -1,0 +1,5 @@
+---
+- hosts: web1
+  remote_user: vagrant
+  roles:
+    - { role: nginx, become: yes }

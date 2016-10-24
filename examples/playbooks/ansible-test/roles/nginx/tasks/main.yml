@@ -1,0 +1,7 @@
+---
+
+- name: INCLUDE | Install
+  include: install.yml
+
+- name: INCLUDE | config
+  include: config.yml
