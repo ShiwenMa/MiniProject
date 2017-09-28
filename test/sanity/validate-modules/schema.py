@@ -41,5 +41,38 @@ doc_schema = Schema(
         'options': Any(None, dict),
         'extends_documentation_fragment': Any(basestring, [basestring])
     },
+    
+    doc_schema = Schema(
+    {
+        Required('module'): basestring,
+        'short_description': basestring,
+        'description': Any(basestring, [basestring]),
+        'version_added': Any(basestring, float),
+        'author': Any(None, basestring, [basestring]),
+        'notes': Any(None, [basestring]),
+        'requirements': [basestring],
+        'options': Any(None, dict),
+        'extends_documentation_fragment': Any(basestring, [basestring])
+    },
+        ption_schema = Schema(
+    {
+        Required('description'): Any(basestring, [basestring]),
+        'required': bool,
+        'choices': list,
+        'aliases': list,
+        'version_added': Any(basestring, float)
+    },
+        doc_schema = Schema(
+    {
+        Required('module'): basestring,
+        'short_description': basestring,
+        'description': Any(basestring, [basestring]),
+        'version_added': Any(basestring, float),
+        'author': Any(None, basestring, [basestring]),
+        'notes': Any(None, [basestring]),
+        'requirements': [basestring],
+        'options': Any(None, dict),
+        'extends_documentation_fragment': Any(basestring, [basestring])
+    },
     extra=ALLOW_EXTRA
 )
