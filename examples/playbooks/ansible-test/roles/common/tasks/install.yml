@@ -1,0 +1,9 @@
+---
+
+- name: update system
+
+
+- name: install epel repo
+  yum:
+    name: epel-release
+    state: present

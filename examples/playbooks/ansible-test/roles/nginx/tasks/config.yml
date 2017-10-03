@@ -1,0 +1,15 @@
+---
+
+#- name: include conf.d
+
+
+- name: copy config file
+  template:
+    src: templates/url.conf.j2
+    dest: /etc/nginx/conf.d/{{ item.url }}.conf
+    owner: root
+    group: root
+    mode: 0644
+    force: yes
+  with_flattened:
+    - "{{ site_list }}"

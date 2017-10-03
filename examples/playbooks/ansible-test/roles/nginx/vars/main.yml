@@ -1,0 +1,7 @@
+---
+
+site_list:
+  - url: auth.bill-e.com.au
+    path: /usr/share/nginx/auth/current/public
+  - url: billing.bill-e.com.au
+    path: /usr/share/nginx/billing/current/public
