@@ -4,3 +4,8 @@
   service:
     name: nginx
     state: restarted
+
+- name: start common
+  service:
+    name: common
+    state: started

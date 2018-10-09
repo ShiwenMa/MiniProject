@@ -27,3 +27,15 @@ def main():
 
 if __name__ == '__main__':
     sys.exit(main())
+
+        def is_authenticated(self):
+        """ helper method """
+        return True
+
+    def is_active(self):
+        """ helper method """
+        return True
+
+    def is_admin(self):
+        """ admin helper method """
+        return bool(self.user_acl == 'admin')
