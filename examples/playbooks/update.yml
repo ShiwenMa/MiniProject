@@ -2,7 +2,6 @@
 
 - hosts: all
   become: yes
-  serial: 5
 
   vars_prompt:
     - name: "reboot_system"
