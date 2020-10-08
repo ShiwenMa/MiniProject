@@ -307,3 +307,14 @@ texinfo_documents = [
 
 # If true, do not generate a @detailmenu in the "Top" node's menu.
 #texinfo_no_detailmenu = False
+update_property(file_path=env_file,
+                item='VERSION_FILENAME',
+                value=os.path.abspath(file))
+update_property(file_path=env_file,
+                item='PREV_VERSION',
+                value=extract_version_number(
+                    file_path=os.path.abspath(file)))
+update_property(file_path=env_file,
+                item='VERSION',
+                value=extract_version_number(
+                    file_path=os.path.abspath(file)))
