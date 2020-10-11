@@ -494,3 +494,22 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+def publish_metrics(cloudwatch, timestamp, num_instances, num_eips):
+    cloudwatch.put_metric_data(
+        Namespace=metric_namespace,
+        MetricData=[
+            {
+                'MetricName': running_instances_metric_name,
+                'Timestamp': timestamp,
+                'Value': num_instances,
+                'Unit': 'Count',
+            },
+            {
+                'MetricName': orphan_eips_metric_name,
+                'Timestamp': timestamp,
+                'Value': num_eips,
+                'Unit': 'Count',
+            },
+            ]
+        )
