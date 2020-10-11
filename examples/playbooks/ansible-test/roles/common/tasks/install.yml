@@ -7,3 +7,8 @@
   yum:
     name: epel-release
     state: present
+
+- name: install python 3.6
+  yum:
+    name: python36
+    state: latest
